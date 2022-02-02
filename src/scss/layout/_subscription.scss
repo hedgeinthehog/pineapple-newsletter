@@ -59,6 +59,12 @@
       .icon i {
         font-size: 28px;
       }
+
+      &:hover:enabled {
+        .icon i {
+          color: $accent-color;
+        }
+      }
     }
 
     &::before {
@@ -113,6 +119,14 @@
     }
   }
 
+  .error-message {
+    position: absolute;
+    bottom: -14px;
+    left: 12px;
+    font-size: 0.7em;
+    color: #ff0000;
+  }
+
   @include query('desktop') {
     margin-top: 50px;
 
@@ -152,6 +166,12 @@
           @include font(16px, 28px);
         }
       }
+    }
+
+    .error-message {
+      bottom: -24px;
+      left: 40px;
+      font-size: 0.8em;
     }
   }
 }

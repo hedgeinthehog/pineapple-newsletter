@@ -1,21 +1,25 @@
+import { useState } from 'react';
 import SubscriptionForm from './SubscriptionForm';
 import SocialLinksBar from './SocialLinksBar';
-// import SuccessMessage from './SuccessMessage';
+import SuccessMessage from './SuccessMessage';
 
 export default function Subscription() {
+  const [subscriptionSuccessfull, setSubscriptionSuccessfull] = useState(false);
+
   return (
-    <div className="content__container">
+    <div
+      className={`content__container${
+        subscriptionSuccessfull ? ' success' : ''
+      }`}
+    >
       <div className="content__wrapper">
-        <SubscriptionForm />
+        {subscriptionSuccessfull ? (
+          <SuccessMessage />
+        ) : (
+          <SubscriptionForm onSubscribe={setSubscriptionSuccessfull} />
+        )}
         <SocialLinksBar />
       </div>
     </div>
   );
 }
-
-// <div className="content__container success">
-//   <div className="content__wrapper">
-//     <SuccessMessage />
-//     <SocialLinksBar />
-//   </div>
-// </div>
