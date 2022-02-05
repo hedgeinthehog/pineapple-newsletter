@@ -61,6 +61,7 @@
       }
 
       &:hover:enabled {
+        cursor: pointer;
         .icon i {
           color: $accent-color;
         }
