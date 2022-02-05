@@ -1,5 +1,5 @@
 import SocialLink from './SocialLink';
-import socialLinks from '../../helpers/social-links';
+import socialLinks from '../../../helpers/social-links';
 
 export default function SocialLinksBar() {
   return (

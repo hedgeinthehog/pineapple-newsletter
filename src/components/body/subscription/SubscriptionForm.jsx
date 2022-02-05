@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import errorMessages from '../../helpers/email-validation-errors';
+import errorMessages from '../../../helpers/error-messages';
+import { subscribe } from '../../../api-requests/api-requests';
 
 export default function SubscriptionForm({ onSubscribe }) {
   const [email, setEmail] = useState('');
@@ -13,9 +14,23 @@ export default function SubscriptionForm({ onSubscribe }) {
   };
 
   // Updates subscriptions' state in Subscription (parent) component
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    onSubscribe(true);
+    const fd = {
+      email,
+      agreement: agreed,
+    };
+    try {
+      const response = await subscribe(fd);
+      const data = await response.json();
+      if (response.status === 400) {
+        setError(data.message);
+        return;
+      }
+      onSubscribe(true);
+    } catch (e) {
+      setError(errorMessages.unexpectedError);
+    }
   };
 
   // Takes care of email input

@@ -1,4 +1,4 @@
-import SuccessIcon from '../../images/success-icon.svg';
+import SuccessIcon from '../../../images/success-icon.svg';
 
 export default function SuccessMessage() {
   return (
