@@ -1,3 +1,5 @@
+const BASE_URL = 'http://localhost:8080';
+
 const subscribe = formData => {
   const settings = {
     method: 'POST',
@@ -6,18 +8,18 @@ const subscribe = formData => {
     },
     body: JSON.stringify(formData),
   };
-  return fetch('http://localhost:8080/api/', settings);
+  return fetch(`${BASE_URL}/api/`, settings);
 };
 
 const getAll = () => {
-  return fetch('http://localhost:8080/api/');
+  return fetch(`${BASE_URL}/api/`);
 }
 
 const remove = (id) => {
   const settings = {
     method: 'DELETE',
   };
-  return fetch(`http://localhost:8080/api/${id}`, settings);
+  return fetch(`${BASE_URL}/api/${id}`, settings);
 }
 
 export { subscribe, getAll, remove };
