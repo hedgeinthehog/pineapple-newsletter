@@ -1,0 +1,39 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: max(66px, 8vh);
+  padding: 0 clamp(20px, 5.3vw, 100px);
+  background-color: $primary-background-color;
+
+  @include query('desktop') {
+    height: 40px;
+    background-color: transparent;
+  }
+}
+
+.nav-bar {
+  &__item {
+    padding: 12% 0;
+    @include font(14px, 24px);
+    color: $main-text-color;
+    text-decoration: none;
+
+    &:not(:first-child) {
+      margin-left: 20px;
+    }
+
+    &:hover {
+      color: $accent-color;
+    }
+  }
+
+  @include query('desktop') {
+    &__item {
+      @include font(16px, 26px);
+      &:not(:first-child) {
+        margin-left: 30px;
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@import '/node_modules/modern-normalize/modern-normalize.css';
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: $main-font;
+  font-style: normal;
+  color: $main-text-color;
+}

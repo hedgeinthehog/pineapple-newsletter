@@ -1,0 +1,35 @@
+.logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+
+  &__img {
+    & path {
+      fill: $accent-color;
+    }
+  }
+
+  &__text {
+    // Hides logo text on mobile
+    display: none;
+    // ->
+  }
+
+  @include query('desktop') {
+    &__img {
+      // Corrects logo images' position
+      position: relative;
+      bottom: 8px;
+      // ->
+    }
+
+    &__text {
+      display: inline-block;
+      margin-left: 15px;
+
+      & path {
+        fill: $secondary-text-color;
+      }
+    }
+  }
+}
